@@ -1,0 +1,7 @@
+{
+  "name": "productivityStats",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
