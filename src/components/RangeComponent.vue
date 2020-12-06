@@ -1,8 +1,7 @@
 <template>
   <div class="range">
     <ion-label>{{ rangeTitle }}</ion-label>
-    <ion-range ref="rangeDualKnobs" min="0" max="10" pin="true" value="5"
-               v-model="state.input"></ion-range>
+    <ion-range min="0" max="10" pin="true" value="5" v-model="state.input" @ionBlur="$emit('range-value', state.input)"></ion-range>
   </div>
 </template>
 
@@ -16,27 +15,15 @@ export default {
     rangeTitle: null
   },
   setup() {
-    // eslint-disable-next-line @typescript-eslint/no-use-before-define
-    const {state, getValue} = RangeInfos()
+    const state = reactive({
+      input: 5
+    })
 
     return {
-      state,
-      getValue
+      state
     }
   }
 };
-
-function RangeInfos() {
-  const state = reactive({
-    input: 5
-  })
-
-  const getValue = () => {
-    console.log(state.input)
-  }
-
-  return {state, getValue}
-}
 </script>
 
 <style lang="scss">
@@ -45,6 +32,7 @@ function RangeInfos() {
   border-radius: 8px;
 
   ion-label {
+    color: #ffffff;
     font-size: 1.2em;
     font-weight: bold;
     text-transform: uppercase;
