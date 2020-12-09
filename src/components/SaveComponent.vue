@@ -9,12 +9,6 @@ import {defineComponent} from 'vue'
 import {IonButton} from '@ionic/vue';
 
 export default defineComponent({
-  components: {IonButton},
-  props: {
-    allData: null
-  },
-  setup(props) {
-    console.log(props.allData)
-  }
+  components: {IonButton}
 });
 </script>
