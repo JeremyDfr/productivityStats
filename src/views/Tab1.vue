@@ -107,11 +107,14 @@ export default defineComponent({
               })
               .catch((e: any) => console.log(e))
         })
+            .then(() => {
+              results.splice(0, results.length)
+            })
             .catch((e: any) => console.log(e))
       }
     }
 
-    const insert = () => {
+    function insert() {
       if (sqlite) {
         sqlite.then((db: SQLiteObject) => {
           db.executeSql('INSERT INTO stats (energy, concentration, motivation, date) VALUES (:energy, :concentration, :motivation, :date)',
